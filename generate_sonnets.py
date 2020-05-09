@@ -1,6 +1,5 @@
 #import tensorflow as tf
 from tensorflow.keras.models import load_model
-import sys
 import numpy as np
 
 
