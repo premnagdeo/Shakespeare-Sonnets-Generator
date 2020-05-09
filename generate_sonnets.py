@@ -67,11 +67,12 @@ def generate_sonnet():
     # Choose random seed text
     start_idx = np.random.randint(0, len(data) - maxlen - 1)
     new_sonnet = data[start_idx:start_idx + maxlen]
-
+    charlen = len(chars)
     generated_sonnet = []
     for i in range(450):
         # Vectorize generated text
-        sampled = np.zeros((1, maxlen, len(chars)))
+
+        sampled = np.zeros((1, maxlen, charlen))
         for j, char in enumerate(new_sonnet):
             sampled[0, j, char_indices[char]] = 1.
 
