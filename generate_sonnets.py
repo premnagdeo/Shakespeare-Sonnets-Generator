@@ -69,7 +69,7 @@ def generate_sonnet():
     new_sonnet = data[start_idx:start_idx + maxlen]
 
     generated_sonnet = []
-    for i in range(600):
+    for i in range(300):
         # Vectorize generated text
         sampled = np.zeros((1, maxlen, len(chars)))
         for j, char in enumerate(new_sonnet):
