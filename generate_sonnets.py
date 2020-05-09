@@ -1,4 +1,4 @@
-import tensorflow as tf
+#import tensorflow as tf
 from tensorflow.keras.models import load_model
 import sys
 import numpy as np
@@ -68,7 +68,7 @@ def generate_sonnet():
     # Choose random seed text
     start_idx = np.random.randint(0, len(data) - maxlen - 1)
     new_sonnet = data[start_idx:start_idx + maxlen]
-    print(new_sonnet)
+
     generated_sonnet = []
     for i in range(600):
         # Vectorize generated text
@@ -85,8 +85,8 @@ def generate_sonnet():
         new_sonnet += next_char
         new_sonnet = new_sonnet[1:]
 
-        # Print to console
-        print(next_char, end='')
+        # Print to console for debugging
+        # print(next_char, end='')
 
         generated_sonnet.append(next_char)
 
@@ -97,4 +97,4 @@ if __name__ == '__main__':
     ''' Run main program '''
 
     generate_sonnet()
-    print()
+    #print()
