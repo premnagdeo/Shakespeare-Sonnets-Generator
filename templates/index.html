@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title> Generate Shakespeare Sonnets </title>
+		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+		
+    </head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript>
+        $(function() {
+          $('a#generate').bind('click', function() {
+            $.getJSON('/initiate_generate_sonnets',
+                function(data) {
+        $('#sonnet_textarea').text(data.sonnet);
+        
+            });
+			$('#sonnet_textarea').attr('placeholder','Writing a special sonnet just for you');
+            return false;
+          });
+        });
+        
+    </script>
+    <body>
+        <div id='display'>
+            <h3 id='top'>Click the button to Generate a Shakespeare Sonnet</h3>
+            <form action="{{ url_for('initiate_generate_sonnets') }}" method="post" >
+                <a href=# id=generate><button id='generate_button'>Generate Sonnets!</button></a>
+                <br>
+                <br>
+                <textarea id="sonnet_textarea" placeholder="Generated Sonnet will appear here" rows="15" cols="100"></textarea>
+            </form>
+        </div>
+    </body>
+</html>
