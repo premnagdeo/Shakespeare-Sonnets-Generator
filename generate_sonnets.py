@@ -1,4 +1,3 @@
-#import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np
 
@@ -14,11 +13,11 @@ def load_data(maxlen=25, step=3):
     '''
     with open('shakespeare_sonnets_dataset.txt', 'r') as f:
         data = f.read().lower()
-
     sentences = []
     targets = []
     # Loop through sonnets and create sequences and associated targets
-    for i in range(0, len(data) - maxlen, step):
+    datalen = len(data)
+    for i in range(0, datalen - maxlen, step):
         sentences.append(data[i:i + maxlen])
         targets.append(data[maxlen + i])
     # Grab all unique characters in corpus
@@ -67,9 +66,10 @@ def generate_sonnet():
     # Choose random seed text
     start_idx = np.random.randint(0, len(data) - maxlen - 1)
     new_sonnet = data[start_idx:start_idx + maxlen]
+
     charlen = len(chars)
     generated_sonnet = []
-    for i in range(450):
+    for i in range(500):
         # Vectorize generated text
 
         sampled = np.zeros((1, maxlen, charlen))
@@ -85,9 +85,6 @@ def generate_sonnet():
         new_sonnet += next_char
         new_sonnet = new_sonnet[1:]
 
-        # Print to console for debugging
-        # print(next_char, end='')
-
         generated_sonnet.append(next_char)
 
     return "".join(generated_sonnet)
@@ -95,6 +92,4 @@ def generate_sonnet():
 
 if __name__ == '__main__':
     ''' Run main program '''
-
     generate_sonnet()
-    #print()
