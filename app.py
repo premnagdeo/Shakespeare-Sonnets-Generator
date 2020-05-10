@@ -3,6 +3,10 @@ from flask import Flask, render_template, make_response, request, jsonify, Respo
 
 app = Flask(__name__)
 
+@app.route('/return_response', methods=['GET', 'POST'])
+def return_response():
+    return jsonify({'status': 'OK'})
+
 #background process to generate sonnets without any refreshing
 @app.route('/initiate_generate_sonnets', methods=['GET', 'POST'])
 def initiate_generate_sonnets():

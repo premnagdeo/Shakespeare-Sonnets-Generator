@@ -2,7 +2,7 @@ from tensorflow.keras.models import load_model
 import numpy as np
 
 
-def load_data(maxlen=25, step=3):
+def load_data(maxlen=40, step=3):
     '''
     Load in training text and vectorize it into 3D tensor
     Args:
@@ -55,13 +55,13 @@ def generate_sonnet():
     Returns:
         600 characters printed to console
     '''
-    # Max length of each sequence. Same as in Jupyter notebook
+    # Max length of each sequence
     maxlen = 40
     # Sample new sequence every step characters
     step = 3
     data, char_indices, chars = load_data(maxlen, step)
 
-    # Load model trained in Jupyter notebook
+    # Load the trained model
     model = load_model('shakespeare_model.h5')
     # Choose random seed text
     start_idx = np.random.randint(0, len(data) - maxlen - 1)
@@ -69,7 +69,7 @@ def generate_sonnet():
 
     charlen = len(chars)
     generated_sonnet = []
-    for i in range(300):
+    for i in range(600):
         # Vectorize generated text
 
         sampled = np.zeros((1, maxlen, charlen))
