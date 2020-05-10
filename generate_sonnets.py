@@ -84,7 +84,7 @@ def generate_sonnet():
         # Append predicted character to seed text
         new_sonnet += next_char
         new_sonnet = new_sonnet[1:]
-
+		
         generated_sonnet.append(next_char)
 
     return "".join(generated_sonnet)
