@@ -3,4 +3,3 @@ Flask==1.1.2
 numpy==1.18.4
 setuptools==41.0.0
 gunicorn
-Flask-Compress==1.5.0
