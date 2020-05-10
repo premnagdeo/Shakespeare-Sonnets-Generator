@@ -28,7 +28,7 @@ def load_data(maxlen=25, step=3):
     return data, char_indices, chars
 
 
-def sample(preds, temperature=1.0):
+def sample(preds, temperature=0.2):
     '''
     Reweight the predicted probabilities and draw sample from
     newly created probability distribution
@@ -69,7 +69,7 @@ def generate_sonnet():
 
     charlen = len(chars)
     generated_sonnet = []
-    for i in range(400):
+    for i in range(300):
         # Vectorize generated text
 
         sampled = np.zeros((1, maxlen, charlen))
@@ -78,7 +78,7 @@ def generate_sonnet():
 
         # Predict next character
         preds = model.predict(sampled, verbose=0)[0]
-        pred_idx = sample(preds, temperature=0.4)
+        pred_idx = sample(preds, temperature=0.2)
         next_char = chars[pred_idx]
 
         # Append predicted character to seed text
