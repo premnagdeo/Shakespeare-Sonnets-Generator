@@ -10,9 +10,9 @@
         $(function() {
           $('a#generate').bind('click', function() {
 		  
+
 			$.ajax({
 				url: '/return_response',
-				type: 'GET',
 				success: function(response){
 					console.log(response);
 				},

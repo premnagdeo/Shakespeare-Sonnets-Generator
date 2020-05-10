@@ -5,7 +5,9 @@ app = Flask(__name__)
 
 @app.route('/return_response', methods=['GET', 'POST'])
 def return_response():
-    return jsonify({'status': 'Generating Sonnet Please Wait'})
+    print('heel')
+    return '''Generating Sonnet Please Wait'''
+    #return jsonify({'status': 'Generating Sonnet Please Wait'})
 
 #background process to generate sonnets without any refreshing
 @app.route('/initiate_generate_sonnets', methods=['GET', 'POST'])
