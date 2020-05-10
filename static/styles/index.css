@@ -71,13 +71,27 @@ form {
 }
 
 
-@media screen 
- and (max-device-width: 800px) 
-  and (max-device-height: 640px) 
-  and (-webkit-device-pixel-ratio: 2) 
-  and (orientation: portrait) {
-    p {
-      font-size: 1em;
-    }
+@media  (max-width: 768px) {
+#display {
+	color: azure;
+	font-size: 2.5em;
+	top: 6px;
+  padding-bottom: 0px;
+  opacity: 1;
+  filter: alpha(opacity=80); /* For IE8 and earlier */
+}
+	html {
+		
+	  background-repeat: no-repeat;
+	  background-size: contain;
+		
+	}
+	
+
+#sonnet_textarea {
+	font-size: 1.5em;
+	font-family: cursive;
+	opacity: 0.8;
+}
 }
 
