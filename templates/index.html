@@ -1,33 +1,32 @@
 <html>
     <head>
         <title> Generate Shakespeare Sonnets </title>
-		<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
-		<link rel="shortcut icon" href="#">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
+        <link rel="shortcut icon" href="#">
     </head>
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
     <script type=text/javascript>
         $(function() {
           $('a#generate').bind('click', function() {
-		  
-
-			$.ajax({
-				url: '/return_response',
-				success: function(response){
-					console.log(response);
-				},
-				error: function(error){
-					console.log(error);
-				}
-			});
-			  
-		  
-            $.getJSON('/initiate_generate_sonnets',
+        
+        $.ajax({
+        url: '/return_response',
+        type: 'POST',
+        success: function(response){
+        console.log(response);
+        },
+        error: function(error){
+        console.log(error);
+        }
+        });
+        
+        
+        $.getJSON('/initiate_generate_sonnets',
                 function(data) {
-			$('#sonnet_textarea').text(data.sonnet);
+        $('#sonnet_textarea').text(data.sonnet);
         
             });
-			$('#sonnet_textarea').attr('placeholder','Writing a special sonnet just for you');
+        $('#sonnet_textarea').attr('placeholder','Writing a special sonnet just for you');
             return false;
           });
         });
