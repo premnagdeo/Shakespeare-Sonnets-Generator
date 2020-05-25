@@ -2,7 +2,7 @@
 
 Shakespeare Sonnets Generator using a Long Short Term Memory (LSTM) Recurrent Neural Network (RNN).
 
-Try it yourself here: https://shakespeare-sonnets-generator.herokuapp.com/
+Try it yourself here : https://shakespeare-sonnets-generator.herokuapp.com/
 
 ![Screenshot](images/screenshot.png)
 
