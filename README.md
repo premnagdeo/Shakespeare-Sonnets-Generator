@@ -55,7 +55,6 @@ This will start flask and you can view the output at http://127.0.0.1:5000/
 ![Model Summary](images/model_summary.png)
 
 
-
 ### Model Loss
 ![Model Loss](images/plot.png)
 
