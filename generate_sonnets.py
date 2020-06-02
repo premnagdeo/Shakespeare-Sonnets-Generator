@@ -53,7 +53,9 @@ def generate_sonnet():
     Args:
         None
     Returns:
-        600 characters printed to console
+        x characters printed to console
+		where x is the number in for loop(can be edited for larger sonnets)
+		
     '''
     # Max length of each sequence
     maxlen = 40
@@ -69,7 +71,9 @@ def generate_sonnet():
 
     charlen = len(chars)
     generated_sonnet = []
-    for i in range(250):
+	
+	# Character limit has been set to 200 due to heroku limitation. Increase it to 600
+    for i in range(200):
         # Vectorize generated text
 
         sampled = np.zeros((1, maxlen, charlen))
