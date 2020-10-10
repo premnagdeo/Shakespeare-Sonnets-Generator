@@ -87,3 +87,56 @@ form {
 		opacity: 0.8;
 	}
 }
+
+/* footer css starts */
+
+footer {
+	text-align: center;
+	font-size: 1.3rem;
+	margin: 0 auto;
+	padding-bottom: 1em;
+	font-family: "Roboto";
+}
+
+.social_media {
+	font-size: 36px;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem 0;
+}
+
+
+/* change icon color
+
+.fa-linkedin{
+	color: black;
+}
+.fa-github{
+	color: black;
+}
+.fa-hackerrank{
+	color: black;
+}
+.fa-envelope{
+	color: black;
+}
+.iconify{
+	color: black;
+}
+
+*/
+
+footer .heart {
+	color: red;
+}
+
+.heart+.footer_name:hover {
+	border-bottom: 3.5px solid white;
+}
+
+.footer_name:hover,
+footer .footer_name {
+	border-bottom: 2px solid white;
+}
+
+/* footer css ends */
