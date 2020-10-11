@@ -4,7 +4,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
         <link rel="shortcut icon" href="#">
-    		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     </head>
     <script type=text/javascript>
         $(function() {
@@ -20,13 +19,21 @@
         console.log(error);
         }
         });
+        $.ajax({
+          dataType: "json",
+          url: '/initiate_generate_sonnets',
+          success: function(data) {
+            $('#sonnet_textarea').text(data.sonnet);
+          },
 
+          error: function(error) {
+            console.log(error);
+            console.log("Error in fetching sonnet. Retrying");
+            $('#generate')[0].click();
+          }
 
-        $.getJSON('/initiate_generate_sonnets',
-                function(data) {
-        $('#sonnet_textarea').text(data.sonnet);
-
-            });
+        });
+        
         $('#sonnet_textarea').attr('placeholder','Writing a special sonnet just for you');
             return false;
           });
@@ -43,20 +50,20 @@
                 <textarea id="sonnet_textarea" placeholder="Generated Sonnet will appear here" rows="10" cols="100"></textarea>
             </form>
         </div>
-    		<footer>
-      			<div class="social_media">
-        				<a href="https://linkedin.com/in/premnagdeo" target="_blank"> <i class="fa fa-linkedin"></i></a>
-        				<a href="https://github.com/premnagdeo" target="_blank"> <i class="fa fa-github"></i></a>
-        				<a href="https://www.codechef.com/users/premnagdeo" target="_blank"> <i class="iconify" data-icon="simple-icons:codechef" data-inline="false"></i></a>
-        				<a href="https://leetcode.com/premnagdeo/" target="_blank"> <i class="iconify" data-icon="simple-icons:leetcode" data-inline="false"></i></a>
-        				<a href="https://www.hackerrank.com/premnagdeo" target="_blank"> <i class="fab fa-hackerrank"></i></a>
-        				<a href="mailto:premnagdeo@gmail.com" target="_blank"> <i class="fa fa-envelope"></i></a>
-      			</div>
-      			<span>Made with <span class="heart">❤️</span> by <a href="https://www.linkedin.com/in/premnagdeo/" target="_blank" class="footer_name">Prem Nagdeo</a>
-      			</span>
-    		</footer>
-    		<script src="https://kit.fontawesome.com/5e6b5ddfea.js" crossorigin="anonymous"></script>
-    		<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
-    		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <footer>
+            <div class="social_media">
+                <a href="https://linkedin.com/in/premnagdeo" target="_blank"> <i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/premnagdeo" target="_blank"> <i class="fa fa-github"></i></a>
+                <a href="https://www.codechef.com/users/premnagdeo" target="_blank"> <i class="iconify" data-icon="simple-icons:codechef" data-inline="false"></i></a>
+                <a href="https://leetcode.com/premnagdeo/" target="_blank"> <i class="iconify" data-icon="simple-icons:leetcode" data-inline="false"></i></a>
+                <a href="https://www.hackerrank.com/premnagdeo" target="_blank"> <i class="fab fa-hackerrank"></i></a>
+                <a href="mailto:premnagdeo@gmail.com" target="_blank"> <i class="fa fa-envelope"></i></a>
+            </div>
+            <span>Made with <span class="heart">❤️</span> by <a href="https://www.linkedin.com/in/premnagdeo/" target="_blank" class="footer_name">Prem Nagdeo</a>
+            </span>
+        </footer>
+        <script src="https://kit.fontawesome.com/5e6b5ddfea.js" crossorigin="anonymous"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     </body>
 </html>
